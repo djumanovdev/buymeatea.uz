@@ -9,6 +9,6 @@ from .views import (
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('<str:username>', user_info_view, name='user_info'),
+    path('/creators/<str:username>', user_info_view, name='user_info'),
     path('/donate', donate_view, name='donate'),
 ]
