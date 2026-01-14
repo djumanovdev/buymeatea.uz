@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.first_name }} {{ user.last_name }} - BuyMeaTea{% endblock %}
+
+{% block content %}
+<div class="profile-header">
+    <div class="container">
+        <div class="profile-header-content">
+            <div class="profile-avatar">
+                <div class="avatar-circle">
+                    {{ user.first_name.0 }}{{ user.last_name.0 }}
+                </div>
+                <div class="avatar-glow"></div>
+            </div>
+            
+            <div class="profile-info">
+                <h1 class="profile-name">{{ user.first_name }} {{ user.last_name }}</h1>
+                <p class="profile-username">@{{ user.username }}</p>
+                {% if user.bio %}
+                <p class="profile-bio">{{ user.bio }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="donation-section">
+    <div class="container">
+        <div class="donation-grid">
+            <div class="donation-card">
+                <div class="donation-header">
+                    <h2>Buy {{ user.first_name }} a Tea</h2>
+                    <p>Show your support with the warmth of a virtual tea</p>
+                </div>
+
+                <form method="POST" action="{% url 'donate' %}" class="donation-form" id="donationForm">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    
+                    <div class="form-group">
+                        <label for="tea_count">Number of Teas</label>
+                        <div class="tea-selector">
+                            <button type="button" class="tea-btn" data-value="1">
+                                <span class="tea-emoji">🍵</span>
+                                <span class="tea-count">1 Tea</span>
+                                <span class="tea-price">$3</span>
+                            </button>
+                            <button type="button" class="tea-btn" data-value="3">
+                                <span class="tea-emoji">🍵🍵🍵</span>
+                                <span class="tea-count">3 Teas</span>
+                                <span class="tea-price">$9</span>
+                            </button>
+                            <button type="button" class="tea-btn" data-value="5">
+                                <span class="tea-emoji">🍵✨</span>
+                                <span class="tea-count">5 Teas</span>
+                                <span class="tea-price">$15</span>
+                            </button>
+                        </div>
+                        <div class="custom-amount">
+                            <input type="number" id="tea_count" name="tea_count" min="1" max="100" value="1" class="form-input">
+                            <span class="custom-label">Or enter custom amount</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supporter_name">Your Name</label>
+                        <input type="text" id="supporter_name" name="supporter_name" class="form-input" placeholder="Anonymous" maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Leave a kind message..."></textarea>
+                        <span class="char-count"><span id="charCount">0</span>/280</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="make_public" value="true">
+                            <span class="checkmark"></span>
+                            <span>Make my donation public</span>
+                        </label>
+                    </div>
+
+                    <div class="donation-summary">
+                        <div class="summary-row">
+                            <span>Teas:</span>
+                            <span id="teaCount">1</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Price per tea:</span>
+                            <span>$3.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="totalAmount">$3.00</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-large btn-primary btn-donate">
+                        <span class="btn-text">Support with Tea</span>
+                        <span class="btn-icon">☕</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="supporters-card">
+                <h3>Recent Supporters</h3>
+                <div class="supporters-list">
+                    <div class="supporter-item">
+                        <div class="supporter-avatar">A</div>
+                        <div class="supporter-info">
+                            <div class="supporter-name">Anonymous</div>
+                            <div class="supporter-message">"Keep up the great work!"</div>
+                            <div class="supporter-meta">
+                                <span class="supporter-teas">3 ☕</span>
+                                <span class="supporter-time">2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="supporter-item">
+                        <div class="supporter-avatar">JD</div>
+                        <div class="supporter-info">
+                            <div class="supporter-name">John Doe</div>
+                            <div class="supporter-message">"Thanks for sharing your knowledge!"</div>
+                            <div class="supporter-meta">
+                                <span class="supporter-teas">5 ☕</span>
+                                <span class="supporter-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="supporter-item">
+                        <div class="supporter-avatar">SK</div>
+                        <div class="supporter-info">
+                            <div class="supporter-name">Sarah Kim</div>
+                            <div class="supporter-message">"Love your content! 💖"</div>
+                            <div class="supporter-meta">
+                                <span class="supporter-teas">1 ☕</span>
+                                <span class="supporter-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-mini">
+                    <div class="stat-mini-item">
+                        <div class="stat-mini-number">127</div>
+                        <div class="stat-mini-label">Total Supporters</div>
+                    </div>
+                    <div class="stat-mini-item">
+                        <div class="stat-mini-number">342</div>
+                        <div class="stat-mini-label">Teas Received</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

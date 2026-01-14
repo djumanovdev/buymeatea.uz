@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}BuyMeaTea - Support Creators{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-background">
+        <div class="tea-steam steam-1"></div>
+        <div class="tea-steam steam-2"></div>
+        <div class="tea-steam steam-3"></div>
+    </div>
+    
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">
+                Share a cup of tea<br>
+                <span class="highlight">with creators you love</span>
+            </h1>
+            <p class="hero-subtitle fade-in delay-1">
+                Support the people who inspire you. A small gesture, a warm connection.
+            </p>
+            <div class="hero-actions fade-in delay-2">
+                <a href="/start" class="btn btn-large btn-primary">Start Your Page</a>
+                <a href="/explore" class="btn btn-large btn-secondary">Explore Creators</a>
+            </div>
+        </div>
+        
+        <div class="hero-visual fade-in delay-3">
+            <div class="tea-cup">
+                <div class="cup-body"></div>
+                <div class="cup-handle"></div>
+                <div class="tea-liquid"></div>
+                <div class="tea-steam-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Why BuyMeaTea?</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card slide-in">
+                <div class="feature-icon">☕</div>
+                <h3>Simple Support</h3>
+                <p>Your supporters can buy you a tea (or three!) in just a few clicks. No subscriptions required.</p>
+            </div>
+            
+            <div class="feature-card slide-in delay-1">
+                <div class="feature-icon">🎨</div>
+                <h3>Your Page, Your Way</h3>
+                <p>Customize your profile to reflect your personality. Share your story, your work, your passion.</p>
+            </div>
+            
+            <div class="feature-card slide-in delay-2">
+                <div class="feature-icon">💝</div>
+                <h3>Keep 95%</h3>
+                <p>We only take a small 5% fee. The rest goes directly to you, because you deserve it.</p>
+            </div>
+            
+            <div class="feature-card slide-in delay-3">
+                <div class="feature-icon">🌍</div>
+                <h3>Global Community</h3>
+                <p>Connect with supporters from around the world who appreciate what you create.</p>
+            </div>
+            
+            <div class="feature-card slide-in delay-4">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Access</h3>
+                <p>Set up your page in minutes. Start receiving support today, no waiting period.</p>
+            </div>
+            
+            <div class="feature-card slide-in delay-5">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Safe</h3>
+                <p>All transactions are encrypted and secure. Your data and earnings are protected.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to brew your success?</h2>
+            <p class="cta-subtitle">Join thousands of creators already receiving support</p>
+            <a href="/start" class="btn btn-large btn-accent">Get Started Free</a>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-count="50000">0</div>
+                <div class="stat-label">Creators</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="1200000">0</div>
+                <div class="stat-label">Teas Bought</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$2.5M+</div>
+                <div class="stat-label">Donated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="120">0</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
